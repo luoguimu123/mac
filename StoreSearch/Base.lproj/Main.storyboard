@@ -15,8 +15,31 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YbK-4L-2m1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KzJ-Gc-EGj">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KzJ-Gc-EGj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="13W-b7-0iw"/>
+                            <constraint firstAttribute="trailing" secondItem="YbK-4L-2m1" secondAttribute="trailing" id="74P-ol-my3"/>
+                            <constraint firstItem="YbK-4L-2m1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Be0-My-Q3t"/>
+                            <constraint firstItem="KzJ-Gc-EGj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Iv5-KB-dke"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YbK-4L-2m1" secondAttribute="bottom" id="PFo-9N-s32"/>
+                            <constraint firstAttribute="trailing" secondItem="KzJ-Gc-EGj" secondAttribute="trailing" id="QiT-wV-wNd"/>
+                            <constraint firstItem="YbK-4L-2m1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cMn-u2-TTu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="KzJ-Gc-EGj" id="cuu-GH-P0X"/>
+                        <outlet property="tableView" destination="YbK-4L-2m1" id="YQ4-ZN-MnQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

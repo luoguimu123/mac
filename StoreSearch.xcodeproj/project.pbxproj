@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB05444E1BDCAD9300868B55 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB05444D1BDCAD9300868B55 /* SearchResult.swift */; settings = {ASSET_TAGS = (); }; };
 		FBA5D37D1BDBCE1F0063EAA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D37C1BDBCE1F0063EAA5 /* AppDelegate.swift */; };
 		FBA5D37F1BDBCE1F0063EAA5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */; };
 		FBA5D3821BDBCE1F0063EAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA5D3801BDBCE1F0063EAA5 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB05444D1BDCAD9300868B55 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		FBA5D3791BDBCE1E0063EAA5 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA5D37C1BDBCE1F0063EAA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				FBA5D3831BDBCE1F0063EAA5 /* Assets.xcassets */,
 				FBA5D3851BDBCE1F0063EAA5 /* LaunchScreen.storyboard */,
 				FBA5D3881BDBCE1F0063EAA5 /* Info.plist */,
+				FB05444D1BDCAD9300868B55 /* SearchResult.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBA5D37F1BDBCE1F0063EAA5 /* SearchViewController.swift in Sources */,
+				FB05444E1BDCAD9300868B55 /* SearchResult.swift in Sources */,
 				FBA5D37D1BDBCE1F0063EAA5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +485,7 @@
 				FBA5D3A31BDBCE1F0063EAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBA5D3A41BDBCE1F0063EAA5 /* Build configuration list for PBXNativeTarget "StoreSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +494,7 @@
 				FBA5D3A61BDBCE1F0063EAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBA5D3A71BDBCE1F0063EAA5 /* Build configuration list for PBXNativeTarget "StoreSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +503,7 @@
 				FBA5D3A91BDBCE1F0063EAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
