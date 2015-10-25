@@ -24,6 +24,16 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self;
         tableView.dataSource = self;
         tableView.delegate = self;
+        var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil);
+        tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell);
+        cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil);
+        tableView.registerNib(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell);
+        searchBar.becomeFirstResponder();
+    }
+    
+    struct TableViewCellIdentifiers {
+        static let searchResultCell = "SearchResultCell";
+        static let nothingFoundCell = "NothingFoundCell";
     }
 
 }
@@ -63,19 +73,19 @@ extension SearchViewController: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "SearchResultCell";
-        var cell:UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier);
-        if cell == nil{
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier);
-        }
         if searchResults.count == 0{
-            cell.textLabel!.text = "(Nothing found)";
-            cell.detailTextLabel!.text = "";
+            return tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.nothingFoundCell, forIndexPath: indexPath);
         }else{
-            cell.textLabel!.text = searchResults[indexPath.row].name;
-            cell.detailTextLabel!.text = searchResults[indexPath.row].artistName;
+            let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.searchResultCell, forIndexPath: indexPath) as! SearchResultCell;
+            if searchResults.count == 0 {
+                cell.nameLable.text = "(Nothing found)";
+                cell.artistNameLabel.text = "";
+            }else{
+                cell.nameLable.text = searchResults[indexPath.row].name;
+                cell.artistNameLabel.text = searchResults[indexPath.row].artistName;
+            }
+            return cell;
         }
-        return cell;
     }
     
 }
