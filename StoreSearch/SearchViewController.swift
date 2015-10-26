@@ -13,16 +13,20 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar:UISearchBar!;
     
     @IBOutlet weak var tableView:UITableView!;
-        
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var searchResults = [SearchResult]();
     
     var hasSearched:Bool = false;
     
     var isLoading:Bool = false;
     
+    var dataTask: NSURLSessionDataTask?;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0);
+        tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0);
         searchBar.delegate = self;
         tableView.dataSource = self;
         tableView.delegate = self;
@@ -41,30 +45,29 @@ class SearchViewController: UIViewController {
         static let loadingCell = "LoadingCell";
     }
     
-    func urlWithSearchText(searchText:String) -> NSURL{
+    func urlWithSearchText(searchText:String, category:Int) -> NSURL{
+        let entityName:String;
+        switch category{
+        case 1:
+            entityName = "musicTrack";
+        case 2:
+            entityName = "software";
+        case 3:
+            entityName = "ebook";
+        default:
+            entityName = "";
+        }
         let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet());
-        let urlString = String(format: "https://itunes.apple.com/search?term=%@", escapedSearchText!);
+        let urlString = String(format: "http://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText!, entityName);
         let url = NSURL(string: urlString);
         return url!;
     }
     
-    func performStoreRequestWithURL(url: NSURL) -> String!{
-        do{
-            return try String(contentsOfURL: url, encoding: NSUTF8StringEncoding);
-        }catch{
-            print("Download Error: \(error)", separator: "", terminator: "\n");
-            return nil;
-        }
-    }
-    
-    func parseJSON(jsonString: String) -> [String: AnyObject]!{
-        guard let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding) else{
-            return nil;
-        }
+    func parseJSON(data: NSData) -> [String: AnyObject]!{
         do{
             return try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject];
         }catch{
-            print("JSON Error \(error)", separator: "", terminator: "\n");
+            print("Json Error : \(error)", separator: "", terminator: "\n");
             return nil;
         }
     }
@@ -204,35 +207,52 @@ class SearchViewController: UIViewController {
         }
     }
 
+    @IBAction func segmentChanged(sender: UISegmentedControl) {
+        performSearch();
+    }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        performSearch();
+    }
+    
+    func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder();
+            dataTask?.cancel();
             hasSearched = true;
             isLoading = true;
             searchResults.removeAll();
             tableView.reloadData();
-            
-            let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT , 0);
-            dispatch_async(queue, { () -> Void in
-                let url = self.urlWithSearchText(searchBar.text!);
-                if let jsonString = self.performStoreRequestWithURL(url){
-                    let dictionary = self.parseJSON(jsonString);
-                    self.searchResults = self.parseDictionary(dictionary);
-                    self.searchResults.sortInPlace({ $0 < $1 });
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.isLoading = false;
-                        self.tableView.reloadData();
-                    });
-                    return;
+            let url = urlWithSearchText(searchBar.text!, category: segmentedControl.selectedSegmentIndex);
+            let session = NSURLSession.sharedSession();
+            dataTask = session.dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+                if error != nil{
+                    print("Failure: \(error)", separator: "", terminator: "\n");
+                }else if let httpResponse = response as? NSHTTPURLResponse{
+                    if let data = data, dictionary = self.parseJSON(data) {
+                        self.searchResults = self.parseDictionary(dictionary);
+                        self.searchResults.sortInPlace(<);
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.isLoading = false;
+                            self.tableView.reloadData();
+                        });
+                        return;
+                    }
+                }else{
+                    print("Success: \(response)", separator: "", terminator: "\n");
                 }
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.hasSearched = false;
+                    self.isLoading = false;
+                    self.tableView.reloadData();
                     self.showNetworkError();
                 });
             });
+            dataTask?.resume();
         }
     }
     

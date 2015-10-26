@@ -16,7 +16,6 @@
 		FBA5D37F1BDBCE1F0063EAA5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */; };
 		FBA5D3821BDBCE1F0063EAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA5D3801BDBCE1F0063EAA5 /* Main.storyboard */; };
 		FBA5D3841BDBCE1F0063EAA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA5D3831BDBCE1F0063EAA5 /* Assets.xcassets */; };
-		FBA5D3871BDBCE1F0063EAA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA5D3851BDBCE1F0063EAA5 /* LaunchScreen.storyboard */; };
 		FBA5D3921BDBCE1F0063EAA5 /* StoreSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D3911BDBCE1F0063EAA5 /* StoreSearchTests.swift */; };
 		FBA5D39D1BDBCE1F0063EAA5 /* StoreSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D39C1BDBCE1F0063EAA5 /* StoreSearchUITests.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +48,6 @@
 		FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FBA5D3811BDBCE1F0063EAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBA5D3831BDBCE1F0063EAA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FBA5D3861BDBCE1F0063EAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBA5D3881BDBCE1F0063EAA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBA5D38D1BDBCE1F0063EAA5 /* StoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA5D3911BDBCE1F0063EAA5 /* StoreSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTests.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				FBA5D37C1BDBCE1F0063EAA5 /* AppDelegate.swift */,
 				FBA5D3831BDBCE1F0063EAA5 /* Assets.xcassets */,
 				FBA5D3881BDBCE1F0063EAA5 /* Info.plist */,
-				FBA5D3851BDBCE1F0063EAA5 /* LaunchScreen.storyboard */,
 				FBA5D3801BDBCE1F0063EAA5 /* Main.storyboard */,
 				FB05444D1BDCAD9300868B55 /* SearchResult.swift */,
 				FB0544511BDCBC9A00868B55 /* SearchResultCell.swift */,
@@ -243,7 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA5D3871BDBCE1F0063EAA5 /* LaunchScreen.storyboard in Resources */,
 				FBA5D3841BDBCE1F0063EAA5 /* Assets.xcassets in Resources */,
 				FB1FB5FB1BDE0C2F009CCFA4 /* LoadingCell.xib in Resources */,
 				FB0544501BDCB53500868B55 /* SearchResultCell.xib in Resources */,
@@ -318,14 +314,6 @@
 				FBA5D3811BDBCE1F0063EAA5 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FBA5D3851BDBCE1F0063EAA5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBA5D3861BDBCE1F0063EAA5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
