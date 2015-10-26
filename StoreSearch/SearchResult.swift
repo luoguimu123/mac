@@ -14,6 +14,24 @@ class SearchResult: NSObject{
 
     var artistName:String! = "";
     
+    var artworkURL60 = "";
+    
+    var artworkURL100 = "";
+    
+    var storeURL = "";
+    
+    var kind = "";
+    
+    var currency = "";
+    
+    var price = 0.0;
+    
+    var genre = "";
+    
+    override init() {
+        super.init();
+    }
+    
     init(name:String, artistName:String) {
         self.name = name;
         self.artistName = artistName;
