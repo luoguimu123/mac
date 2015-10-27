@@ -180,33 +180,6 @@ class SearchViewController: UIViewController {
         return searchResult;
     }
     
-    func kindForDisplay(kind: String) -> String{
-        switch kind{
-        case "album":
-            return "Album";
-        case "audiobook":
-            return "Audio Book";
-        case "book":
-            return "Book";
-        case "ebook":
-            return "E-Book";
-        case "feature-movie":
-            return "Movie";
-        case "music-video":
-            return "Music Video";
-        case "podcast":
-            return "Podcast";
-        case "software":
-            return "Software";
-        case "song":
-            return "Song";
-        case "tv-episode":
-            return "TV Episode";
-        default:
-            return kind;
-        }
-    }
-
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         performSearch();
     }
@@ -286,17 +259,7 @@ extension SearchViewController: UITableViewDataSource{
             return tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.nothingFoundCell, forIndexPath: indexPath);
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.searchResultCell, forIndexPath: indexPath) as! SearchResultCell;
-            if searchResults.count == 0 {
-                cell.nameLable.text = "(Nothing found)";
-                cell.artistNameLabel.text = "";
-            }else{
-                cell.nameLable.text = searchResults[indexPath.row].name;
-                if searchResults[indexPath.row].artistName.isEmpty{
-                    cell.artistNameLabel.text = "Unknown";
-                }else{
-                    cell.artistNameLabel.text = String(format: "%@ (%@)", searchResults[indexPath.row].artistName, kindForDisplay(searchResults[indexPath.row].kind));
-                }
-            }
+            cell.configureForSearchResult(searchResults[indexPath.row]);
             return cell;
         }
     }

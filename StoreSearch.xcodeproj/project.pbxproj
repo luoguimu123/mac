@@ -12,6 +12,7 @@
 		FB0544521BDCBC9A00868B55 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0544511BDCBC9A00868B55 /* SearchResultCell.swift */; settings = {ASSET_TAGS = (); }; };
 		FB0544541BDCC2EC00868B55 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0544531BDCC2EC00868B55 /* NothingFoundCell.xib */; settings = {ASSET_TAGS = (); }; };
 		FB1FB5FB1BDE0C2F009CCFA4 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB1FB5FA1BDE0C2F009CCFA4 /* LoadingCell.xib */; settings = {ASSET_TAGS = (); }; };
+		FB2A66C41BDE715700773911 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2A66C31BDE715700773911 /* UIImageView+DownloadImage.swift */; settings = {ASSET_TAGS = (); }; };
 		FBA5D37D1BDBCE1F0063EAA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D37C1BDBCE1F0063EAA5 /* AppDelegate.swift */; };
 		FBA5D37F1BDBCE1F0063EAA5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */; };
 		FBA5D3821BDBCE1F0063EAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA5D3801BDBCE1F0063EAA5 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		FB0544511BDCBC9A00868B55 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		FB0544531BDCC2EC00868B55 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		FB1FB5FA1BDE0C2F009CCFA4 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		FB2A66C31BDE715700773911 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		FBA5D3791BDBCE1E0063EAA5 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA5D37C1BDBCE1F0063EAA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				FBA5D37E1BDBCE1F0063EAA5 /* SearchViewController.swift */,
 				FB0544531BDCC2EC00868B55 /* NothingFoundCell.xib */,
 				FB1FB5FA1BDE0C2F009CCFA4 /* LoadingCell.xib */,
+				FB2A66C31BDE715700773911 /* UIImageView+DownloadImage.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				FB05444E1BDCAD9300868B55 /* SearchResult.swift in Sources */,
 				FB0544521BDCBC9A00868B55 /* SearchResultCell.swift in Sources */,
 				FBA5D37D1BDBCE1F0063EAA5 /* AppDelegate.swift in Sources */,
+				FB2A66C41BDE715700773911 /* UIImageView+DownloadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
